@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 ###### This is a simple script which will do a silent install of Office 2016.
 
