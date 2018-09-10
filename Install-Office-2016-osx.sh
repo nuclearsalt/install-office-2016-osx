@@ -13,13 +13,15 @@ read -p "Do you want to install Microsoft Office 2016? y/n " choice
 		cd /MS\ Office/
 
 		# download Office installer
-
-		sudo -S curl -O https://officecdn-microsoft-com.akamaized.net/pr/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_16.15.18070902_Installer.pkg
+		
 		echo "Downloading Office Installer"
-
+		sudo -S curl -O https://officecdn-microsoft-com.akamaized.net/pr/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_16.15.18070902_Installer.pkg
 
 		# Install office using plist as answer file
 
+		# the volume specified after "-target" will fail if the root volume is not called 'Macintosh HD'.
+		# Also, cannot specify the root volume as / - the shell won't find it, not sure why
+		
 		sudo -S /usr/sbin/installer -pkg '/MS Office/Microsoft_Office_2016_16.15.18070902_Installer.pkg' -target '/Volumes/Macintosh HD/' -applyChoiceChangesXML /MS\ Office/choices.plist
 		echo "Done!"
 		
